@@ -1,16 +1,18 @@
 import "./Colaborador.css"
 
 
-const Colaborador = () => {
+const Colaborador = (props) => {
+    const {nombre, puesto, foto, equipo } =props.datos
+    const{colorPrimario} =props
    
     return <div className="colaborador">
       
-        <div className="encabezado" >
-            <img src="https://github.com/felipemedina05.png" alt="felipemedina"/>
+        <div className="encabezado" style={{backgroundColor:colorPrimario}} >
+            <img src={foto} alt="felipemedina"/>
         </div>
         <div className="info">
-            <h4>nombre</h4>
-            <h5>puesto</h5>
+            <h4>{nombre}</h4>
+            <h5>{puesto}</h5>
         </div>
     </div>
 }
