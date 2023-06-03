@@ -14,7 +14,8 @@ function App() {
     equipo: "Front End",
     foto: "https://github.com/felipemedina05.png",
     nombre: "Andres Medina",
-    puesto: "Practicante"
+    puesto: "Practicante",
+    fav: false
   }])
   const [equipos,actualizarEquipos] =useState( [
     {
@@ -100,6 +101,20 @@ function App() {
 
   }
 
+  const like = (id) => {
+    console.log ("like", id)
+    const colaboladorActualizados = colaboradores.map ((colaborador)=> {
+      if (colaborador.id === id){
+        colaborador.fav =!colaborador.fav
+      }
+      return colaborador
+
+    }) 
+
+    actualizarColaboradores (colaboladorActualizados)
+
+  }
+
   return (
     <div>
       <Header />
@@ -123,6 +138,8 @@ function App() {
           colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)}
           eliminarColaborador={eliminarColaborador}
           actualizarColor={actualizarColor}
+          like ={like}
+          
         />
         )
       }
